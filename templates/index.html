@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link rel="icon" href="https://image.flaticon.com/icons/png/128/1146/1146869.png">
+</head>
+
+<body>
+  <div id="video-background">
+    <video id="background-video" autoplay muted loop>
+      Your browser does not support the video tag.
+    </video>
+    <audio id="background-audio" autoplay loop>
+      <source type="audio/mp3">
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
+  <div>
+    <div class="card">
+      <center>
+        <h2 style="color: gold; font-size: 38px; font-weight: bolder;">Weather Predictor</h2>
+      </center>
+
+      <div class="search" style="margin-top: 2%; margin-bottom: 2%">
+        <input type="date" id="inputDate" class="search-bar" placeholder="Search">
+        <button><i class="fa fa-search"></i></button>
+      </div>
+      <hr>
+      <div class="weather loading">
+        <h2 class="city" style="font-size: larger;"></h2>
+        <h1 class="temp" id="predictedWeather" style="font-weight: bolder;">51°C</h1>
+
+      </div>
+    </div>
+    <br><br>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header" style="margin-top: -20px;">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; font-size: larger;">No Weather Info
+            Found ⚠️</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="{{ url_for('static', filename='img/alert.gif') }}" style="margin-left: 35%;" width="150"
+            height="150"><br>
+          <center><b style="font-weight: bolder; color: red; align-content: center;">No weather Information Available
+              for your entered city/location. Please check the input and try again !!!</b></center>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</body>
+
+</html>
